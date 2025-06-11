@@ -1,0 +1,539 @@
+/* 1. Importar Fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto+Slab:wght@700&display=swap');
+
+:root {
+  /* Colores */
+  --bg-page:    #F4F4F1;
+  --bg-header:  #2E3B4E;
+  --bg-card:    #FFFFFF;
+  --text-main:  #333333;
+  --accent-1:   #C07A00;
+  --accent-2:   #A67B5B;
+  --shadow:     rgba(0, 0, 0, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: var(--bg-header);
+  color: var(--bg-card);
+  text-align: center;
+  padding: 2rem 1rem;
+  box-shadow: 0 2px 8px var(--shadow);
+  font-family: 'Roboto Slab', serif;
+}
+
+header h1 {
+  margin: 0 0 .5rem;
+  font-size: 2rem;
+}
+
+header p {
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Barra de navegación */
+.main-nav {
+  background-color: var(--bg-header);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.main-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.main-nav a {
+  color: var(--bg-card);
+  text-decoration: none;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s;
+}
+
+.main-nav a:hover {
+  color: var(--accent-1);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.main-nav i {
+  font-size: 1.2rem;
+}
+
+/* Contenedor principal */
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Secciones */
+.section {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--shadow);
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.section-title {
+  color: var(--bg-header);
+  font-family: 'Roboto Slab', serif;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 3px;
+  background-color: var(--accent-1);
+  margin: 1rem auto;
+}
+
+.section-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  font-size: 1.1rem;
+  color: var(--text-main);
+  opacity: 0.8;
+}
+
+/* Estilos para las imágenes de las secciones */
+.section img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Ajustes específicos para imágenes en diferentes secciones */
+#inicio img {
+    height: 400px; /* Imagen más grande para la sección de inicio */
+}
+
+#objetivos img,
+#metodologia img,
+#resultados img,
+#conclusiones img {
+    height: 300px; /* Altura estándar para las demás secciones */
+}
+
+/* Ajuste para imágenes en dispositivos móviles */
+@media (max-width: 768px) {
+    .section img {
+        height: 250px;
+    }
+    
+    #inicio img {
+        height: 300px;
+    }
+}
+
+/* Tarjetas de pregunta */
+.question {
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.question:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px var(--shadow);
+}
+
+.question h2 {
+  margin: 0;
+  padding: 1rem;
+  background-color: var(--accent-2);
+  color: var(--bg-card);
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.25rem;
+  grid-column: 1 / -1;
+}
+
+.question .content {
+  padding: 1.5rem;
+}
+
+.question .content p {
+  margin: 0 0 1rem;
+}
+
+.question .content ul,
+.question .content ol {
+  margin: 0 0 1.5rem 1.5rem;
+}
+
+.question img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: -1px;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Footer */
+footer {
+  background-color: var(--bg-header);
+  color: var(--bg-card);
+  padding: 2rem 1rem;
+  border-top: 4px solid var(--accent-1);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.footer-section h3 {
+  color: var(--accent-1);
+  margin-bottom: 1rem;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.2rem;
+  border-bottom: 2px solid var(--accent-1);
+  padding-bottom: 0.5rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-section ul li i {
+  color: var(--accent-1);
+  width: 20px;
+  text-align: center;
+}
+
+.footer-section a {
+  color: var(--bg-card);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: var(--accent-1);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-links a {
+  color: var(--bg-card);
+  font-size: 1.5rem;
+  transition: all 0.3s;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.social-links a:hover {
+  color: var(--accent-1);
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Botones flotantes */
+.floating-buttons {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.floating-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--accent-1);
+  color: var(--bg-card);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.floating-button:hover {
+  transform: scale(1.1) translateY(-3px);
+  background-color: var(--accent-2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.floating-button.whatsapp {
+  background-color: #25D366;
+}
+
+.floating-button.whatsapp:hover {
+  background-color: #128C7E;
+}
+
+.floating-button.top {
+  background-color: var(--bg-header);
+  display: none; /* Se mostrará con JavaScript cuando se haga scroll */
+}
+
+.floating-button.top:hover {
+  background-color: var(--accent-2);
+}
+
+/* Lightbox overlay */
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.lb-content {
+  position: relative;
+  background: #fff;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.lb-slide {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+#lb-img {
+  flex: 1;
+  object-fit: contain;
+  max-height: 90vh;
+}
+
+#lb-info {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  background: var(--bg-page);
+}
+
+.lb-close,
+.lb-nav {
+  position: absolute;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: .5rem 1rem;
+  z-index: 1;
+}
+
+.lb-close {
+  top: 0;
+  right: 0;
+  color: var(--accent-1);
+  font-size: 2.5rem;
+}
+
+.lb-prev {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.lb-next {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+/* Media Queries */
+@media (min-width: 600px) {
+  .question {
+    grid-template-columns: 2fr 3fr;
+  }
+  
+  .question .content {
+    grid-column: 1 / 2;
+  }
+  
+  .question img {
+    grid-column: 2 / 3;
+    margin-top: 0;
+    border-radius: 0 0 8px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .main-nav a {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .footer-section ul li {
+    justify-content: center;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  .floating-buttons {
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
+.footer-section .university-link {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    background-color: #0056b3;
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.footer-section .university-link:hover {
+    background-color: #003d82;
+}
+
+.professor-link {
+    color: #0077b5;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.professor-link:hover {
+    color: #005582;
+    text-decoration: underline;
+}
+
+/* Colores específicos para cada sección */
+#inicio h2 {
+    color: #2c3e50; /* Azul oscuro profesional */
+    border-bottom: 3px solid #2c3e50;
+}
+
+#objetivos h2 {
+    color: #27ae60; /* Verde para objetivos */
+    border-bottom: 3px solid #27ae60;
+}
+
+#metodologia h2 {
+    color: #e67e22; /* Naranja para metodología */
+    border-bottom: 3px solid #e67e22;
+}
+
+#resultados h2 {
+    color: #8e44ad; /* Púrpura para resultados */
+    border-bottom: 3px solid #8e44ad;
+}
+
+#conclusiones h2 {
+    color: #c0392b; /* Rojo para conclusiones */
+    border-bottom: 3px solid #c0392b;
+}
+
+/* Estilo base para todos los encabezados de sección */
+.section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    font-weight: 700;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+/* Efecto hover para los encabezados */
+.section h2:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+} 
