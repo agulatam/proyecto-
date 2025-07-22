@@ -1,3 +1,5 @@
+'use strict';
+
 // LIGHTBOX
 const lightbox = document.getElementById('lightbox');
 const lbImg = document.getElementById('lb-img');
@@ -6,19 +8,8 @@ const lbClose = document.querySelector('.lb-close');
 const lbPrev = document.querySelector('.lb-prev');
 const lbNext = document.querySelector('.lb-next');
 
-// Array de imágenes y sus descripciones
-const images = [
-  { src: 'static/img/pregunta 1.jpg', info: 'Panorámica de mina a cielo abierto' },
-  { src: 'static/img/pregunta 2.jpeg', info: 'Métodos de extracción' },
-  { src: 'static/img/pregunta 3.jpg', info: 'Exploración geológica' },
-  { src: 'static/img/pregunta 4.jpg', info: 'Transporte de mineral' },
-  { src: 'static/img/pregunta 5.jpg', info: 'Planta de beneficio' },
-  { src: 'static/img/pregunta 6.jpg', info: 'Seguridad geotécnica' },
-  { src: 'static/img/pregunta 7.jpg', info: 'Impacto ambiental' },
-  { src: 'static/img/pregunta 8.jpg', info: 'Impacto social' },
-  { src: 'static/img/pregunta 9.jpg', info: 'Minería 4.0' },
-  { src: 'static/img/imagen 10.jpg', info: 'Usos de metales' }
-];
+// Colección de imágenes de las tarjetas
+const images = Array.from(document.querySelectorAll('.question img'));
 
 let currentIndex = 0;
 
@@ -34,7 +25,7 @@ function openLightbox(index) {
 function updateLightbox() {
   const image = images[currentIndex];
   lbImg.src = image.src;
-  lbInfo.textContent = image.info;
+  lbInfo.textContent = image.alt || '';
 }
 
 // Event listeners para los botones de navegación
@@ -54,7 +45,7 @@ lbNext.addEventListener('click', () => {
 });
 
 // Event listeners para las imágenes
-document.querySelectorAll('.question img').forEach((img, index) => {
+images.forEach((img, index) => {
   img.addEventListener('click', () => openLightbox(index));
 });
 
