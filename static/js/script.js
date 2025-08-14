@@ -103,7 +103,8 @@ const lightTheme = {
   '--text-main': rootStyles.getPropertyValue('--text-main').trim(),
   '--accent-1': rootStyles.getPropertyValue('--accent-1').trim(),
   '--accent-2': rootStyles.getPropertyValue('--accent-2').trim(),
-  '--shadow': rootStyles.getPropertyValue('--shadow').trim()
+  '--shadow': rootStyles.getPropertyValue('--shadow').trim(),
+  '--text-inverse': rootStyles.getPropertyValue('--text-inverse').trim()
 };
 
 const darkTheme = {
@@ -113,7 +114,8 @@ const darkTheme = {
   '--text-main': rootStyles.getPropertyValue('--text-main-dark').trim(),
   '--accent-1': rootStyles.getPropertyValue('--accent-1-dark').trim(),
   '--accent-2': rootStyles.getPropertyValue('--accent-2-dark').trim(),
-  '--shadow': rootStyles.getPropertyValue('--shadow-dark').trim()
+  '--shadow': rootStyles.getPropertyValue('--shadow-dark').trim(),
+  '--text-inverse': rootStyles.getPropertyValue('--text-inverse-dark').trim()
 };
 
 themeToggle.addEventListener('click', (e) => {
