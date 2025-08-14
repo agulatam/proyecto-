@@ -294,15 +294,15 @@
   </div>
 
   <!-- LIGHTBOX -->
-  <div id="lightbox">
+  <div id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Galería de imágenes. Usa las flechas del teclado para navegar y Escape para cerrar.">
     <div class="lb-content">
-      <button class="lb-close">&times;</button>
-      <button class="lb-nav lb-prev">&#10094;</button>
+      <button class="lb-close" aria-label="Cerrar">&times;</button>
+      <button class="lb-nav lb-prev" aria-label="Anterior">&#10094;</button>
       <div class="lb-slide">
         <img id="lb-img" src="" alt="Slide grande">
         <div id="lb-info"></div>
       </div>
-      <button class="lb-nav lb-next">&#10095;</button>
+      <button class="lb-nav lb-next" aria-label="Siguiente">&#10095;</button>
     </div>
   </div>
 
