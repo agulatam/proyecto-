@@ -10,6 +10,15 @@
   --accent-1:   #C07A00;
   --accent-2:   #A67B5B;
   --shadow:     rgba(0, 0, 0, 0.05);
+
+  /* Colores modo oscuro */
+  --bg-page-dark:   #1e1e1e;
+  --bg-header-dark: #1b2735;
+  --bg-card-dark:   #2c2c2c;
+  --text-main-dark: #e0e0e0;
+  --accent-1-dark:  #ffb74d;
+  --accent-2-dark:  #d7ccc8;
+  --shadow-dark:    rgba(0, 0, 0, 0.5);
 }
 
 * {
