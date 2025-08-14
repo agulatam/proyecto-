@@ -63,4 +63,39 @@ window.addEventListener('scroll', () => {
 topButton.addEventListener('click', (e) => {
   e.preventDefault();
   window.scrollTo({ top: 0, behavior: 'smooth' });
-}); 
+});
+
+// Modo oscuro
+const themeToggle = document.getElementById('theme-toggle');
+const root = document.documentElement;
+const rootStyles = getComputedStyle(root);
+
+const lightTheme = {
+  '--bg-page': rootStyles.getPropertyValue('--bg-page').trim(),
+  '--bg-header': rootStyles.getPropertyValue('--bg-header').trim(),
+  '--bg-card': rootStyles.getPropertyValue('--bg-card').trim(),
+  '--text-main': rootStyles.getPropertyValue('--text-main').trim(),
+  '--accent-1': rootStyles.getPropertyValue('--accent-1').trim(),
+  '--accent-2': rootStyles.getPropertyValue('--accent-2').trim(),
+  '--shadow': rootStyles.getPropertyValue('--shadow').trim()
+};
+
+const darkTheme = {
+  '--bg-page': rootStyles.getPropertyValue('--bg-page-dark').trim(),
+  '--bg-header': rootStyles.getPropertyValue('--bg-header-dark').trim(),
+  '--bg-card': rootStyles.getPropertyValue('--bg-card-dark').trim(),
+  '--text-main': rootStyles.getPropertyValue('--text-main-dark').trim(),
+  '--accent-1': rootStyles.getPropertyValue('--accent-1-dark').trim(),
+  '--accent-2': rootStyles.getPropertyValue('--accent-2-dark').trim(),
+  '--shadow': rootStyles.getPropertyValue('--shadow-dark').trim()
+};
+
+themeToggle.addEventListener('click', (e) => {
+  e.preventDefault();
+  const isDark = document.body.classList.toggle('dark-mode');
+  const theme = isDark ? darkTheme : lightTheme;
+  Object.keys(theme).forEach(prop => {
+    root.style.setProperty(prop, theme[prop]);
+  });
+});
+
