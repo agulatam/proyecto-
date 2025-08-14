@@ -13,12 +13,32 @@ const images = Array.from(document.querySelectorAll('.question img'));
 
 let currentIndex = 0;
 
+// Función para cerrar el lightbox
+function closeLightbox() {
+  lightbox.style.display = 'none';
+  document.body.style.overflow = 'auto';
+  lightbox.setAttribute('aria-hidden', 'true');
+}
+
+// Funciones para navegar entre imágenes
+function showPrev() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  updateLightbox();
+}
+
+function showNext() {
+  currentIndex = (currentIndex + 1) % images.length;
+  updateLightbox();
+}
+
 // Función para abrir el lightbox
 function openLightbox(index) {
   currentIndex = index;
   updateLightbox();
   lightbox.style.display = 'flex';
   document.body.style.overflow = 'hidden';
+  lightbox.setAttribute('aria-hidden', 'false');
+  lbClose.focus();
 }
 
 // Función para actualizar el contenido del lightbox
@@ -29,19 +49,25 @@ function updateLightbox() {
 }
 
 // Event listeners para los botones de navegación
-lbClose.addEventListener('click', () => {
-  lightbox.style.display = 'none';
-  document.body.style.overflow = 'auto';
-});
+lbClose.addEventListener('click', closeLightbox);
+lbPrev.addEventListener('click', showPrev);
+lbNext.addEventListener('click', showNext);
 
-lbPrev.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  updateLightbox();
-});
-
-lbNext.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % images.length;
-  updateLightbox();
+// Navegación con el teclado
+document.addEventListener('keydown', (e) => {
+  if (lightbox.style.display === 'flex') {
+    switch (e.key) {
+      case 'Escape':
+        closeLightbox();
+        break;
+      case 'ArrowLeft':
+        showPrev();
+        break;
+      case 'ArrowRight':
+        showNext();
+        break;
+    }
+  }
 });
 
 // Event listeners para las imágenes
