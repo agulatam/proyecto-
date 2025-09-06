@@ -58,6 +58,6 @@ Paginas web/
    ```
 2. Abre `index.html` en tu navegador.
 
-## Licencia
+## Licencia:
 
 Este proyecto es solo para fines educativos.
